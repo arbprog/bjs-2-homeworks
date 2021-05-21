@@ -22,10 +22,37 @@ function solveEquation(a, b, c) {
   return arr; // array
 }
 
+const percentTitle = document.querySelector('#percent'),
+  contributionTitle = document.querySelector('#contribution'),
+  amountTitle = document.querySelector('#amount');
+
 function calculateTotalMortgage(percent, contribution, amount, date) {
   let totalAmount;
+  // код для задачи №2 писать здесь  
+  if (isNaN(percent)) {
+    return `Параметр '${percentTitle}' содержит неправильное значение ${percent}`;
+  }
 
-  // код для задачи №2 писать здесь
+  if (isNaN(contribution)) {
+    return `Параметр '${contributionTitle}' содержит неправильное значение ${contribution}`;
+  }
 
-  return totalAmount;
+  if (isNaN(amount)) {
+    return `Параметр '${amountTitle}' содержит неправильное значение ${amount}`;
+  }
+  //Расчитываем тело кредита
+  let creditBody = amount - contribution;
+
+  //Расчитываем количество месяцев, в течении которых необходимо оплатить ипотеку
+  let monthCount = (date.getMonth() - new Date().getMonth()) + ((date.getFullYear() - new Date().getFullYear()) * 12);
+
+  //Расчитываем ежемесячный платеж
+  let percentPerMonth = (percent / 100) / 12;
+  let monthlyPayment = (creditBody * (percentPerMonth + percentPerMonth / (((1 + percentPerMonth) ** monthCount) - 1)));
+
+  //Расчитываем общую сумму, которую выплатит пользователь
+  totalAmount = (monthlyPayment * monthCount).toFixed(2);
+
+  // return totalAmount;
+  return parseFloat(totalAmount);
 }
