@@ -14,7 +14,7 @@ function compareArrays(arr1, arr2) {
           return true;
         }
       }
-    })
+    });
   }
 
   return result; // boolean
