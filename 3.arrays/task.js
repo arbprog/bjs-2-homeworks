@@ -25,9 +25,9 @@ function advancedFilter(arr) {
   // Ваш код
   //Фильтруем по положительным и кратным 3
   let intermediateArr = arr.filter(value => {
-    if(value > 0 && value % 3 === 0) {
+    if (value > 0 && value % 3 === 0) {
       return value;
-    } 
+    }
   });
   //Каждое значение массива intermediateArr умножаем на 10 и записываем в resultArr
   resultArr = intermediateArr.map(item => {
