@@ -48,8 +48,8 @@ function makeWork(arrOfArr, func) {
   // Ваш код
   // for ...
   for (let prop in arrOfArr) {
-    if(worker(arrOfArr[prop]) > max) {
-      max = worker(arrOfArr[prop]);
+    if(func(arrOfArr[prop]) > max) {
+      max = func(arrOfArr[prop]);
     }
   }
 
