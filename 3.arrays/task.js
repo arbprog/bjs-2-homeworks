@@ -3,11 +3,10 @@
 function compareArrays(arr1, arr2) {
   let result;
   // Ваш код
-  // Проверяем равенство длин массивов
+  // Первый вариант решения
   if (arr1.length !== arr2.length) {
     result = false;
   } else {
-    // Для каждого элемента массива arr1 проверяем равен ли элемент массива arr2
     result = arr1.every(function (item, index) {
       for (let i = 0; i < arr2.length; i++) {
         if (index === i && item === arr2[i]) {
@@ -17,21 +16,37 @@ function compareArrays(arr1, arr2) {
     });
   }
 
+  // Второй вариант решения
+  result = arr1.length !== arr2.length ? false :
+    arr1.every(function (index, item) {
+      return arr1[index] === arr2[index] && arr1[item] === arr2[item];
+    });
+
+  // Третий вариант решения
+  result = (arr1.length === arr2.length &&
+    arr1.every((index, item) => {
+      return arr1[index] === arr2[index] && arr1[item] === arr2[item];
+    })) ? true : false;
+
   return result; // boolean
 }
 
 function advancedFilter(arr) {
   let resultArr = [];
   // Ваш код
-  //Фильтруем по положительным и кратным 3
+  // Первый вариант решения
   let intermediateArr = arr.filter(value => {
     if (value > 0 && value % 3 === 0) {
       return value;
     }
   });
-  //Каждое значение массива intermediateArr умножаем на 10 и записываем в resultArr
+
   resultArr = intermediateArr.map(item => {
     return item * 10;
   });
+
+  //Второй вариант решения
+  resultArr = arr.filter(value => {if(value > 0 && value % 3 === 0) {return value;}}).map(item => {return item * 10;});
+
   return resultArr; // array
 }
