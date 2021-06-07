@@ -6,9 +6,10 @@ function Student(name, gender, age) {
   this.gender = gender;
   this.age = age;
 }
-
+ 
 Student.prototype.setSubject = function (subjectName) {
   //ваш код
+<<<<<<< Updated upstream
   this.subject = subjectName;
 }
 
@@ -31,6 +32,9 @@ Student.prototype.getAverage = function () {
 
   this.average = sum / this.marks.length;
 }
+=======
+};
+>>>>>>> Stashed changes
 
 Student.prototype.excludeStudent = function (reason) {
   delete this.subject;
