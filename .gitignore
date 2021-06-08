@@ -2,5 +2,6 @@
 .DS_Store
 .vscode
 .jshintrc
-
+package-lock.json
+node_modules/
 docs/
