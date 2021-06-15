@@ -41,7 +41,7 @@ class Book extends PrintEditionItem {
     constructor(author, name, releaseDate, pagesCount) {
         super(name, releaseDate, pagesCount);
         this.author = author;
-        this.type = "book"; 
+        this.type = "book";
     }
 }
 
@@ -74,15 +74,15 @@ class Library {
     }
 
     addBook(book) {
-        if(book._state > 30) {
+        if (book._state > 30) {
             this.books.push(book);
-        } 
+        }
     }
 
     findBookBy(type, value) {
-        for(let i = 0; i < this.books.length; i++) {
-            for(type in this.books[i]) {
-                if(this.books[i][type] === value) {
+        for (let i = 0; i < this.books.length; i++) {
+            for (type in this.books[i]) {
+                if (this.books[i][type] === value) {
                     return this.books[i];
                 }
             }
@@ -91,13 +91,13 @@ class Library {
     }
 
     giveBookByName(bookName) {
-        for(let i = 0; i < this.books.length; i++) {
-            if(this.books[i].name === bookName) {
+        for (let i = 0; i < this.books.length; i++) {
+            if (this.books[i].name === bookName) {
                 let book = this.books[i];
                 this.books.splice(i, 1);
                 return book;
             }
-            
+
         }
         return null;
     }
@@ -110,11 +110,11 @@ class Student {
     }
 
     addMark(subjectName, mark) {
-        if(mark > 5 || mark < 1 || typeof mark !== "number") {
+        if (mark > 5 || mark < 1 || typeof mark !== "number") {
             console.log(`Ошибка, оценка должна быть числом от 1 до 5`);
             return 0;
-        } 
-        if(!this.marks[subjectName]) {
+        }
+        if (!this.marks[subjectName]) {
             this.marks[subjectName] = [];
         }
         this.marks[subjectName].push(mark);
