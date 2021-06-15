@@ -68,9 +68,9 @@ class DetectiveBook extends Book {
 
 
 class Library {
-    constructor(name = "", books = []) {
+    constructor(name) {
         this.name = name;
-        this.books = books;
+        this.books = [];
     }
 
     addBook(book) {
@@ -80,26 +80,44 @@ class Library {
     }
 
     findBookBy(type, value) {
-        if(type) {
-            return book;
-        } else {
-            return null;
+        for(let i = 0; i < this.books.length; i++) {
+            for(type in this.books[i]) {
+                if(this.books[i][type] === value) {
+                    return this.books[i];
+                }
+            }
         }
+        return null;
+    }
+
+    giveBookByName(bookName) {
+        for(let i = 0; i < this.books.length; i++) {
+            if(this.books[i].name === bookName) {
+                let book = this.books[i];
+                this.books.splice(i, 1);
+                return book;
+            }
+            
+        }
+        return null;
     }
 }
 
+class Student {
+    constructor(name) {
+        this.name = name;
+        this.marks = {};
+    }
 
-
-
-
-const library = new Library("Библиотека имени Ленина");
-
-library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
-library.addBook(new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168));
-library.addBook(new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138));
-library.addBook(new Magazine("Мурзилка", 1924, 60));
-
-console.log(library.findBookBy("name", "Властелин колец")); //null
-console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
-
-
+    addMark(subjectName, mark) {
+        if(mark > 5 || mark < 1 || typeof mark !== "number") {
+            console.log(`Ошибка, оценка должна быть числом от 1 до 5`);
+            return 0;
+        } 
+        if(!this.marks[subjectName]) {
+            this.marks[subjectName] = [];
+        }
+        this.marks[subjectName].push(mark);
+        return this.marks[subjectName].length;
+    }
+}
