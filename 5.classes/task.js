@@ -119,6 +119,7 @@ class Student {
         }
         this.marks[subjectName].push(mark);
     }
+<<<<<<< Updated upstream
 
     getAverageBySubject(subjectName) {
         let sum = 0;
@@ -134,16 +135,31 @@ class Student {
         }
         average = sum / this.marks[subjectName].length;
         return average; 
+=======
+    getAverageBySubject(obj) {
+        for(let i = 0; i < obj.length; i++) {
+            
+        }
+>>>>>>> Stashed changes
     }
 }
 
 const student = new Student("Олег Никифоров");
+<<<<<<< Updated upstream
 student.addGrade("algebra", 3);
 student.addGrade("algebra", 5);
 student.addGrade("geometry", 5);
 student.addGrade("geometry", 4);
 student.addGrade("geometry", 6); // "Ошибка, оценка должна быть числом от 1 до 5"
 student.getAverageBySubject("algebra"); // Средний балл по предмету geometry 4.5
+=======
+student.addMark("algebra", 5);
+student.addMark("algebra", 5);
+student.addMark("geometry", 5);
+student.addMark("geometry", 4);
+student.addMark("geometry", 6); // "Ошибка, оценка должна быть числом от 1 до 5"
+student.getAverageBySubject("geometry"); // Средний балл по предмету geometry 4.5
+>>>>>>> Stashed changes
 student.getAverageBySubject("biology"); // Несуществующий предмет
 student.getAverage(); // Средний балл по всем предметам 4.75
 student.exclude("Исключен за попытку подделать оценки");
