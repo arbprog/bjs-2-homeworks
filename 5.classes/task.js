@@ -109,14 +109,16 @@ class Student {
         this.marks = {};
     }
 
-    addGrade(subjectName, mark) {
+    addGrade(mark, subjectName) {
+        if (!this.marks[subjectName]) {
+            this.marks[subjectName] = [];
+        }
+
         if (mark > 5 || mark < 1 || typeof mark !== "number") {
             console.log(`Ошибка, оценка должна быть числом от 1 до 5`);
             return 0;
         }
-        if (!this.marks[subjectName]) {
-            this.marks[subjectName] = [];
-        }
+
         this.marks[subjectName].push(mark);
     }
 
@@ -155,3 +157,8 @@ class Student {
         this.excluded = reason;
     }
 }
+
+let student = new Student("Ivan Petrov");
+student.addGrade(5, "algebra");
+student.addGrade(5, "algebra");
+console.log(student);

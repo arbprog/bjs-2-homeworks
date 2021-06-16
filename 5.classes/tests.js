@@ -115,16 +115,16 @@ describe('Домашнее задание к занятию 2.3 «ООП в JS (
     });
  
     it('подсчёт средней оценки по предмету', () => {
-      student.addGrade("algebra", 3);
-      student.addGrade("algebra", 5);
+      student.addGrade(3, "algebra");
+      student.addGrade(5, "algebra");
       expect(student.getAverageBySubject("algebra")).toEqual(4);
     });
   
     it('подсчёт общей средней оценки', () => {
-      student.addGrade("algebra", 3);
-      student.addGrade("algebra", 5);
-      student.addGrade("history", 5);
-      student.addGrade("history", 5);
+      student.addGrade(3, "algebra");
+      student.addGrade(5, "algebra");
+      student.addGrade(5, "history");
+      student.addGrade(5, "history");
       expect(student.getAverage()).toEqual(4.5);
     });
   });
