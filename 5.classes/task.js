@@ -157,8 +157,3 @@ class Student {
         this.excluded = reason;
     }
 }
-
-let student = new Student("Ivan Petrov");
-student.addGrade(5, "algebra");
-student.addGrade(5, "algebra");
-console.log(student);
